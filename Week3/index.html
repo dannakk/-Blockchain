@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calculator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script src='node_modules/web3/dist/web3.min.js'></script>
+</head>
+
+<body>
+
+    Enter the first and the second number
+    <br >
+    <input type="number" id="a">
+    <input type="number" id="b">
+    <br /><br />
+
+    <button onclick="add();">add</button>
+    <button onclick="substract();">substract</button>
+    <button onclick="multiply();">multiply</button>
+    <button onclick="divide();">divide</button>
+
+
+    <br /><br />
+    Status: <span id="status">Loading...</span>
+
+    <script type="text/javascript">
+        async function loadWeb3() {
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.enable();
+            }
+        }
+
+        async function loadContract() {
+            return await new window.web3.eth.Contract([
+                {
+                    "inputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "a",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "b",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "add",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "inputs": [],
+                    "name": "c",
+                    "outputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "",
+                            "type": "uint256"
+                        }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "inputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "a",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "b",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "divide",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "inputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "a",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "b",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "multiply",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "inputs": [],
+                    "name": "retrieve",
+                    "outputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "x",
+                            "type": "uint256"
+                        }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "inputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "a",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "b",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "substract",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                }
+            ], '0xe30a07d706faaa04533e0a3c578cc3ad37c7b744');
+        }
+
+        async function printc() {
+            updateStatus('fetching result...');
+            const c = await window.contract.methods.c().call();
+            updateStatus(`result is: ${c}`);
+        }
+
+        async function getCurrentAccount() {
+            const accounts = await window.web3.eth.getAccounts();
+            return accounts[0];r
+        }
+
+        async function add() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            updateStatus(`Adding values ${a} and ${b}, please wait`);
+            const account = await getCurrentAccount();
+            const c = await window.contract.methods.add(a,b).send({ from: account });
+            updateStatus('Addition completed');
+            printc();
+        }
+
+        async function multiply() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            updateStatus(`Multiplying values ${a} and ${b}, please wait`);
+            const account = await getCurrentAccount();
+            const c = await window.contract.methods.multiply(a,b).send({ from: account });
+            updateStatus('Multiplication completed');
+            printc();
+        }
+
+        async function substract() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            updateStatus(`Substracting values ${a} and ${b}, please wait`);
+            const account = await getCurrentAccount();
+            const c = await window.contract.methods.substract(a,b).send({ from: account });
+            updateStatus('Substraction completed');
+            printc();
+        }
+
+        async function divide() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            updateStatus(`Dividing values ${a} and ${b}, please wait`);
+            const account = await getCurrentAccount();
+            const c = await window.contract.methods.divide(a,b).send({ from: account });
+            updateStatus('Division completed');
+            printc();
+        }
+
+        async function load() {
+            await loadWeb3();
+            window.contract = await loadContract();
+            updateStatus('Ready!');
+        }
+
+        function updateStatus(status) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerHTML = status;
+            console.log(status);
+        }
+
+        load();
+    </script>
+</body>
+
+</html>
