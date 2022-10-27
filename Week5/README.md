@@ -15,7 +15,7 @@ Checking the owner of the token with ID 1. The owner is updated
 
 Task 3
 
-Mintinng the nft with parameters of starting price 15 and token uri
+Minting the nft with parameters of starting price 15 and token uri
 ![image](https://user-images.githubusercontent.com/89184586/198260317-72b7a468-79be-4b05-a8c3-bac808f331f3.png)
 
 Current owner of nft with tokenId 1 is the seller
