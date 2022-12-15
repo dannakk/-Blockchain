@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+        <script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
+        <script src="script.js"></script>
+
+
+        <title>My First dApp</title>
+        
+  </head>
+  <body id="ownerBody">
+    
+
+    <div id = "ownerRowForms">
+
+        <div>
+            <p>Transfer ownership</p>
+
+            <label for="deviceIdToTransferOwnership">Enter the device ID:</label> <br />
+            <input type="text" id="deviceIdToTransferOwnership" />
+
+            <label for="oldBuyerIdToTransferOwnership">Enter your ID:</label> <br />
+            <input type="text" id="oldBuyerIdToTransferOwnership" />
+
+            <label for="newBuyerIdToTransferOwnership">Enter ID of new buyer:</label> <br />
+            <input type="text" id="newBuyerIdToTransferOwnership" />
+
+            <button onclick="changeOwner();">Transfer ownership</button>
+
+        </div>
+
+        <div>
+            <p>Add New Customer</p>
+
+            <label for="buyerId">Customer ID:</label> <br />
+            <input type="text" id="buyerId" />
+
+            <label for="name">Customer name:</label> <br />
+            <input type="text" id="name" />
+
+            <label for="phone">Customer phone number:</label> <br />
+            <input type="text" id="phone" />
+
+
+            <button onclick="createBuyer();">Add Customer</button>
+
+        </div>
+
+        <div>
+            <p>Report stolen</p>
+
+            <label for="deviceIdToReportStolen">Enter the device ID:</label> <br />
+            <input type="text" id="deviceIdToReportStolen" />
+
+            <label for="buyerIdToReportStolen">Enter your ID:</label> <br />
+            <input type="text" id="buyerIdToReportStolen" />
+
+            <button onclick="makeStolen();">Report stolen</button>
+
+        </div>
+ 
+    </div>
+
+    <br /><br />
+
+    Status: <span id="status"></span>
+
+
+</body>
+</html>

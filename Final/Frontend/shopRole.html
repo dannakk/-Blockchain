@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+        <script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
+        <script src="script.js"></script>
+
+
+        <title>My First dApp</title>
+        
+  </head>
+  <body id = "shopBody">
+
+    <div id = "firstRowForms">
+        <div>
+            <p>Create a Shop</p>
+        
+
+            <label for="shopId">Shop ID:</label> <br />
+            <input type="text" id="shopId" />
+
+            <label for="shopName">Shop Name:</label> <br />
+            <input type="text" id="shopName" />
+
+            <label for="shopLocation">Shop Location:</label> <br />
+            <input type="text" id="shopLocation" />
+            
+
+            <button onclick="createShop();">Create Shop</button>
+        </div>
+
+        <div>
+            <p>Add a Device</p>
+
+            <label for="deviceId">Device ID:</label> <br />
+            <input type="text" id="deviceId" />
+
+            <label for="brand">Brand:</label> <br />
+            <input type="text" id="brand" />
+
+            <label for="model">Model:</label> <br />
+            <input type="text" id="model" />
+
+            <label for="color">Color:</label> <br />
+            <input type="text" id="color" />
+
+            <label for="shopToAddDevice">Shop:</label> <br />
+            <input type="text" id="shopToAddDevice" />
+            
+
+            <button onclick="createDeviceId();">Add Device</button>
+
+        </div>
+
+        <div>
+            <p>Add a Customer</p>
+
+            <label for="buyerId">Customer ID:</label> <br />
+            <input type="text" id="buyerId" />
+
+            <label for="name">Customer name:</label> <br />
+            <input type="text" id="name" />
+
+            <label for="phone">Customer phone number:</label> <br />
+            <input type="text" id="phone" />
+
+
+            <button onclick="createBuyer();">Add Customer</button>
+
+        </div>
+
+        <div>
+            <p>Assign the Customer to Device</p>
+
+            <label for="shopIdToCustomer">Enter shop ID:</label> <br />
+            <input type="text" id="shopIdToCustomer" />
+
+            <label for="deviceIdToCustomer">Enter device ID:</label> <br />
+            <input type="text" id="deviceIdToCustomer" />
+
+            <label for="buyerIdToCustomer">Enter Customer ID:</label> <br />
+            <input type="text" id="buyerIdToCustomer" />
+
+            <button onclick="setFirstBuyer();">Assign a Customer to Device</button>
+
+        </div>
+        
+    </div>
+    <br /><br />
+    Status: <span id="status"></span>
+
+</body>
+</html>

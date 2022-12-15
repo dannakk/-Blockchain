@@ -1,0 +1,129 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+
+div {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+button {
+    width: 100%;
+    margin: 10px 0px 5px 0px;
+    padding: 12px;
+    border-radius: 8px;
+    border-color: #7C67FF;
+    background-color: #7C67FF;
+    color: white;
+    margin-top: 24px;
+}
+
+
+input {
+    padding: 12px;
+    border-color: #7C67FF;
+    border-radius: 8px;
+}
+
+label {
+    text-align:center;
+    padding-top:32px;
+    color: rgb(137, 136, 145);
+}
+
+/*Main page*/
+
+#mainBody{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction:column;
+    margin-top: 160px;
+}
+
+#mainPageHeader{
+    width: 30%;
+    align-self: center;
+}
+
+#mainPageButton {
+    font-size: x-large;
+    width: 30%;
+    align-self: center;
+    margin: 0px 0px 12px 0px;
+    padding: 32px;
+    border-radius: 8px;
+    border-color: #7C67FF;
+    background-color: white;
+    color: #7C67FF;
+    margin-top: 24px;
+}
+
+/* Shop Page*/
+
+#shopBody{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    
+
+
+}
+
+#firstRowForms{
+    width: 80%;
+    flex-direction: row;
+    align-self: center;
+    column-gap: 64px;
+}
+
+p{
+    font-size:x-large;
+    font-weight: 500;
+}
+
+/* Owner */
+
+#ownerBody{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+#ownerRowForms{
+    width: 60%;
+    flex-direction: row;
+    align-self: center;
+    column-gap: 64px;
+}
+
+/* Buyer */
+
+#buyerBody{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+#buyerRowForms{
+    width: 20%;
+    flex-direction: row;
+    align-self: center;
+    column-gap: 64px;
+}
